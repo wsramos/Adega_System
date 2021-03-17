@@ -2,6 +2,7 @@ package model.entities;
 
 public class Produto {
 	
+	private Integer id;
 	private String nome;
 	private Double precoCompra;
 	private Double precoVenda;
@@ -10,13 +11,22 @@ public class Produto {
 	public Produto() {
 	}
 	
-	public Produto(String nome, Double precoCompra, Double precoVenda, Integer codProduto) {
+	public Produto(Integer id, String nome, Double precoCompra, Double precoVenda, Integer codProduto) {
+		this.id = id;
 		this.nome = nome;
 		this.precoCompra = precoCompra;
 		this.precoVenda = precoVenda;
 		this.codProduto = codProduto;
 	}
-	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
@@ -44,14 +54,15 @@ public class Produto {
 	public void setCodProduto(Integer codProduto) {
 		this.codProduto = codProduto;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((codProduto == null) ? 0 : codProduto.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -61,17 +72,18 @@ public class Produto {
 		if (getClass() != obj.getClass())
 			return false;
 		Produto other = (Produto) obj;
-		if (codProduto == null) {
-			if (other.codProduto != null)
+		if (id == null) {
+			if (other.id != null)
 				return false;
-		} else if (!codProduto.equals(other.codProduto))
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Produto [nome=" + nome + ", precoCompra=" + precoCompra + ", precoVenda=" + precoVenda + ", codProduto="
-				+ codProduto + "]";
+		return "Produto [id=" + id + ", nome=" + nome + ", precoCompra=" + precoCompra + ", precoVenda=" + precoVenda
+				+ ", codProduto=" + codProduto + "]";
 	}
 	
 	
